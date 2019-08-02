@@ -1,0 +1,16 @@
+version: "3"
+services:
+  powerdata:
+    image: powerdata:v1
+    container_name: powerdata
+    hostname: localhost
+    mac_address: ${MATLAB_MAC_ADDRESS}
+    environment: 
+      - USER=${USER}
+      - PASSWORD=${PASSWORD}
+      - ROOT=true
+    ports:
+      - 8787:8787
+    volumes:
+      - /mnt/storage:/home/docker
+      - ${MATLAB_ROOT}:/usr/local/MATLAB/from-host
